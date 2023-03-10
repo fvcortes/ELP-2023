@@ -1,0 +1,134 @@
+% 2022 University of Pennsylvania PhD Dissertation LaTeX Template v.20221216
+% This template aims to fulfill University formatting requirements when one follows the instructions, resolves errors and warnings, and does not edit the style file or font size. Consult https://provost.upenn.edu/formatting-faqs for the most up-to-date requirements and policies.
+%-------------------------------------------
+% We welcome your feedback on the template https://upenn.libwizard.com/f/dissertationlatextemplatefeedback
+%-------------------------------------------
+% The template requires TeX Live 2022 and is optimized for pdfLaTeX and the LaTeX editor Overleaf. Other LaTeX editing programs may require you to compile the document more than once. It is adapted from the Penn Biostat LaTeX Template modified from Dissertation Template for Wharton PhD Candidates in LaTeX. Portions of the text are reprinted or adapted with permission from Ratcliffe SJ. (2017) Penn Biostat LaTeX Template: PhD dissertation. https://dbe.med.upenn.edu/biostat-research/Dissertation_template
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{report}
+\usepackage{upennstyle} % You may add additional packages below this line. Overleaf will warn you if your packages conflict with the template packages. See Chapter 1 for more information.
+
+%-------------------------------------------
+% Citation and bibliography commands. Edit as needed.
+\usepackage[nonamebreak,round]{natbib}
+\bibliographystyle{plainnat}
+%-------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PLEASE FOLLOW THE INSTRUCTIONS IN THE CODE COMMENTS
+% To uncomment a line of code, remove the % at the beginning of the line
+% To comment out a line of code, add a % at the beginning of the line
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% PRELIMINARY PAGES %%%%%
+%-------------------------------------------
+%%%% TITLE PAGE
+% Edit the text between curly braces {} relevant to your dissertation.
+\title{REDUCING IMPACTS OF CLIMATE CHANGE}
+\author{Julia Magalhas de Sant'Anna}
+%\specialization{Field of Specialization} % If you are in Romance Languages or Managerial Science and Applied Economics (Wharton), uncomment this line and edit the text between the {}. If you do, you will also need to edit lines 71 and 72.
+\gradgroup{English Learning Program} % See https://provost.upenn.edu/phd-graduate-groups for names
+\date{2023} % Enter current four-digit year
+% \supervisor{Supervisor's Typed Name}
+% \supervisortitle{Full Faculty Title and Affiliation}
+%\cosupervisor{Co-supervisor's Typed Name} % If applicable, uncomment this line and edit the text between the {}. If you do, you will also need to edit line 39. 
+%\cosupervisortitle{Full Faculty Title and Affiliation} % If applicable, uncomment this line and edit the text between the {}. If you do, you will also need to edit line 38.
+% \gradchair{Graduate Group Chairperson's Typed Name, Full Faculty Title}
+% \committee{Committee Member's Typed Name, Full Faculty Title and Affiliation}
+% \committee{Committee Member's Typed Name, Full Faculty Title and Affiliation}
+% \committee{Committee Member's Typed Name, Full Faculty Title and Affiliation} % If applicable, comment out or duplicate this line to remove or add a committee member
+%-------------------------------------------
+
+%%%% OPTIONAL COPYRIGHT NOTICE
+% \authorlegal{Author’s Full Legal Name} % To opt out of copyrighting your dissertation, uncomment this line. If you do, you will also need to edit line 76.
+%-------------------------------------------
+%\cclicense{Name of Selected Creative Commons License} % If applicable, uncomment this line and edit the text between the {}. If you do, you will also need to edit lines 51, 76, and 78.
+%-------------------------------------------
+%\cclicenseurl{URL of selected Creative Commons License} % If applicable, uncomment this line and edit the text between the {}. If you do, you will also need to edit lines 49, 76, and 78.
+%-------------------------------------------
+
+%%%% OPTIONAL DEDICATION
+% \dedication{Write your dedication text in italics here.} % If not applicable, comment out this line to hide the optional dedication page. If you do, you will also need to edit line 82.
+%-------------------------------------------
+
+%%%% OPTIONAL ACKNOWLEDGEMENT
+% \acknowledgement{Write your acknowledgement text here.} % If not applicable, comment out this line to hide the optional acknowledgement page. If you do, you will also need to edit line 86.
+%-------------------------------------------
+
+%%%% ABSTRACT
+% \abstract{Write your abstract text here.} % Write your abstract between the {}
+%-------------------------------------------
+
+%%%% OPTIONAL PREFACE
+%\preface{Write your preface text here.} % If applicable, uncomment this line and write your preface between the {}. If you do, you will also need to edit line 101.
+%-------------------------------------------
+
+\begin{document}
+\maketitle % If you are in Romance Languages or Managerial Science and Applied Economics (Wharton), comment out this line. If you do, you will also need to edit lines 33 and 72.
+%\makespecializationtitle % If you are in Romance Languages or Managerial Science and Applied Economics (Wharton), uncomment this line. If you do, you will also need to edit lines 33 and 71.
+\setcounter{page}{2}
+
+%%%% OPTIONAL COPYRIGHT NOTICE
+% \makecopyright % If not applicable, comment out this line to hide the optional traditional copyright notice page. If you do, you will also need to edit line 47.
+%-------------------------------------------
+%\makecreativecommons % If applicable, uncomment this line to insert the optional Creative Commons License copyright notice page. If you do, you will also need to edit lines 49, 51, and 76.
+%-------------------------------------------
+
+%%%% OPTIONAL DEDICATION PAGE
+% \makededication % If not applicable, comment out this line to hide the optional dedication page. If you do, you will also need to edit line 55.
+%-------------------------------------------
+
+%%%% OPTIONAL ACKNOWLEDGEMENT PAGE
+% \makeacknowledgement % If not applicable, comment out this line to hide the optional acknowledgment page. If you do, you will also need to edit line 59.
+%-------------------------------------------
+
+% \makeabstract
+% \tableofcontents
+
+%%%% OPTIONAL LIST OF TABLES
+% \clearpage \phantomsection \addcontentsline{toc}{chapter}{LIST OF TABLES} \begin{singlespacing} \listoftables \end{singlespacing}% If not applicable, comment out this line to hide the optional List of Tables
+%-------------------------------------------
+
+%%%% OPTIONAL LIST OF ILLUSTRATIONS
+% \clearpage \phantomsection \addcontentsline{toc}{chapter}{LIST OF ILLUSTRATIONS} \begin{singlespacing} \listoffigures \end{singlespacing}% If not applicable, comment out this line to hide the optional List of Illustrations
+%-------------------------------------------
+
+%%%% OPTIONAL PREFACE
+%\makepreface % If applicable, uncomment this line to insert the optional preface. If you do, you will also need to edit line 67.
+%-------------------------------------------
+
+%%%%% MAIN TEXT %%%%%
+\begin{mainf} % The main body of your dissertation starts below this line
+\chapter{Unit 5}
+\section*{Assessment 2}
+    Climate change is everywhere \cite{behrens_lemuridae_2016}. 
+    .
+    .
+    .
+\end{mainf}
+%-------------------------------------------
+
+%%%%% OPTIONAL APPENDICES %%%%%
+%-------------------------------------------
+% \begin{append}
+% \chapter{\MakeUppercase{Title of Appendix A}}
+% The content of Appendix A begins here. Use the \verb|\chapter| command to insert additional appendices.
+% \section{Section Name of Appendix A}
+% Use the \verb|\section| command to create sections.
+% \chapter{\MakeUppercase{Title of Appendix B}}
+% The content of Appendix B begins here.
+% \end{append}
+%-------------------------------------------
+
+%%%%% BIBLIOGRAPHY %%%%%
+%-------------------------------------------
+\begin{bibliof}
+%\nocite{*} % If applicable, uncomment this line to display all entries in the .bib file
+\bibliography{bibliography}
+\end{bibliof}
+%-------------------------------------------
+\end{document}

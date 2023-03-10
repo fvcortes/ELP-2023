@@ -1,0 +1,372 @@
+% University of Pennsylvania PhD Dissertation LaTeX Template upennstyle.sty
+% Adapted from Penn Biostat LaTeX Template, which was modified from the Dissertation Template for Wharton PhD Candidates in LaTeX.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{upennstyle}[2022/12/13 University of Pennsylvania Dissertation Style]
+
+\RequirePackage[margin=1in,
+                nohead,
+                includeheadfoot,
+                letterpaper]{geometry} 
+\RequirePackage[T1]{fontenc}
+\RequirePackage[american]{babel}
+\RequirePackage{csquotes}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath,amssymb,amsfonts}
+\RequirePackage{amscd}
+\RequirePackage{calc}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{multirow}
+\RequirePackage{blindtext}
+\RequirePackage{verbatim}
+\RequirePackage{appendix}
+\RequirePackage[doublespacing]{setspace} % Sets double-spacing for the main document. Ad hoc commands required for single space tables, etc.
+\RequirePackage{array} % Also for better arrays (eg matrices) in maths
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{pdflscape}
+\RequirePackage{tocloft}%
+\RequirePackage{parskip} % To allow for better management of the Dutch paragraph style
+\RequirePackage[compact]{titlesec}
+
+% LINKS
+\RequirePackage[hidelinks,hypertexnames=false]{hyperref}
+\hypersetup{
+    breaklinks=true
+}
+\urlstyle{same}
+
+
+% CHAPTERS AND SECTIONS
+\renewcommand{\beforetitleunit}{0 pt}
+\titleformat{\section}[hang]{\large}{\thesection.}{6 pt}{}
+\titleformat{\subsection}[hang]{\normalsize}{\thesubsection.}{6 pt}{}
+\counterwithout{footnote}{chapter}
+
+
+% TABLE OF CONTENTS TITLE    
+\renewcommand{\cftbeforetoctitleskip}{-21pt} % Vertical space above title
+\renewcommand{\cfttoctitlefont}{\large}%
+\addto\captionsamerican{\renewcommand{\contentsname}{\hfill TABLE OF CONTENTS \hfill}}%
+\renewcommand{\cftaftertoctitle}{\hfill}%
+\renewcommand{\cftaftertoctitleskip}{21pt} % %Vertical space below title
+
+% TOC ENTRIES
+\setcounter{tocdepth}{1} % Only show chapters and sections in ToC
+\renewcommand{\cftchapfont}{\upshape}
+\renewcommand{\cftchapleader}{\upshape\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchappagefont}{\upshape}
+\renewcommand{\cftchappresnum}{CHAPTER }
+\renewcommand{\cftchapaftersnum}{ :}
+\newlength{\mylen}   % a "scratch" length
+\settowidth{\mylen}{\cftchappresnum \cftchapaftersnum} % extra space
+\addtolength{\cftchapnumwidth}{\mylen} % add the extra space
+
+
+% LIST OF TABLES TITLE
+\renewcommand{\cftbeforelottitleskip}{-12pt} %Vertical space above title
+\renewcommand{\cftlottitlefont}{\large\hfill} 
+\addto\captionsamerican{\renewcommand{\listtablename}{LIST OF TABLES}}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftafterlottitleskip}{20pt} %Vertical space below title
+
+% LOT ENTRIES
+\renewcommand{\cfttabindent}{0in} % Removes default 1.5em indent
+\renewcommand{\cfttabpresnum}{TABLE }
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+\newlength{\mylent}   % a "scratch" length
+\settowidth{\mylent}{\cfttabpresnum} % extra space
+\addtolength{\cfttabnumwidth}{\mylent} % add the extra space
+
+% LIST OF ILLUSTRATIONS (figures) TITLE
+\renewcommand{\cftbeforeloftitleskip}{-12pt} %Vertical space above title
+\renewcommand{\cftloftitlefont}{\large\hfill} 
+\addto\captionsamerican{\renewcommand{\listfigurename}{LIST OF ILLUSTRATIONS}}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftafterloftitleskip}{20pt} %Vertical space below title
+
+% LOF ENTRIES
+\renewcommand{\cftfigindent}{0in} % Removes default 1.5em indent
+\renewcommand{\cftfigpresnum}{FIGURE }
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\newlength{\mylenf}   % a "scratch" length
+\settowidth{\mylenf}{\cftfigpresnum} % extra space
+\addtolength{\cftfignumwidth}{\mylenf} % add the extra space
+
+% TITLE PAGE
+\newcommand{\specialization}[1]{%
+  \expandafter\gdef\csname specialization@\endcsname{#1}}
+  \newcommand{\gradgroup}[1]{%
+  \expandafter\gdef\csname gradgroup@\endcsname{#1}}
+\newcommand{\supervisor}[1]{%
+  \expandafter\gdef\csname supervisor@\endcsname{#1}}
+\newcount\cosup@cnt
+\cosup@cnt=0
+\newcommand{\cosupervisor}[1]{%
+  \expandafter\gdef\csname cosupervisor@\romannumeral\cosup@cnt\endcsname{#1}%
+  \advance\cosup@cnt by 1}
+\newcommand{\supervisortitle}[1]{%
+  \expandafter\gdef\csname supervisortitle@\endcsname{#1}}
+\newcommand{\cosupervisortitle}[1]{%
+  \expandafter\gdef\csname cosupervisortitle@\endcsname{#1}}
+\newcommand{\gradchair}[1]{%
+  \expandafter\gdef\csname gradchair@\endcsname{#1}}
+\newcount\comm@cnt
+\comm@cnt=1
+\newcommand{\committee}[1]{%
+  \expandafter\gdef\csname committee@\romannumeral\comm@cnt\endcsname{#1}%
+  \advance\comm@cnt by 1}
+
+\renewcommand\maketitle{\par
+  \begingroup
+     \singlespace
+      \@maketitle
+      \pagenumbering{roman}
+  \endgroup
+  \global\let\maketitle\relax
+  \global\let\@maketitle\relax
+  \global\let\@commitee\@empty
+  \global\let\committee\relax
+  \global\let\and\relax
+}
+
+\newcommand{\@maketitle}{%
+  \thispagestyle{empty}
+  \begin{center}%
+    \begin{doublespacing}
+    \normalsize{\MakeUppercase{\@title\\}%
+   {\@author\\}%
+  %  {A DISSERTATION\\}%
+  %   {in\\}%   
+    {\csname gradgroup@\endcsname\\}%
+   {Presented to the Faculties of the University of Pennsylvania\\}%
+   {in\\}%
+   {Partial Fulfillment of the Requirements for the\\}%
+   {English Learning Program Certificate\\}%
+   {\@date}%
+    \vskip 2.5cm}%
+    \end{doublespacing}
+  \end{center}%
+%    \begin{flushleft}%
+%    \ifnum \cosup@cnt=0 {%
+%     {Supervisor of Dissertation}\vskip 0em%
+%    {\csname supervisor@\endcsname}, %\vskip 0em%
+%   {\csname supervisortitle@\endcsname}}%
+%   \else {%
+%  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }p{0.4\linewidth} p{0.4\linewidth}}%
+%    {Supervisor of Dissertation} & {Co-Supervisor of Dissertation}\\ & \\ %\vskip 0em%
+%    {\csname supervisor@\endcsname} & {\csname cosupervisor@\endcsname}\\ & \\ %\vskip 0em%
+%    {\csname supervisortitle@\endcsname} & {\csname cosupervisortitle@\endcsname} %\vskip 0em%%
+% \end{tabular*}%
+% }%
+%  \fi%  
+%   \vskip 1.0cm%
+%   {Graduate Group Chairperson} \vskip 0em%
+%    {\csname gradchair@\endcsname}%
+%   \vskip 1.0cm%
+%   {Dissertation Committee}\vskip 0em%
+%   \newcount\n%
+%   \n=1%
+%   \loop {\csname committee@\romannumeral\n\endcsname}%
+%   \advance \n by 1%
+%   \ifnum\n<\comm@cnt%
+%   \\%\vskip 0em 
+%   \repeat%
+%   \end{flushleft}
+  \thispagestyle{empty}
+  \clearpage
+}
+
+\newcommand{\makespecializationtitle}{\par
+  \begingroup
+     \singlespace
+      \@makespecializationtitlepage
+      \pagenumbering{roman}
+  \endgroup
+  \global\let\makespecializationtitle\relax
+  \global\let\@makespecializationtitle\relax
+  \global\let\@commitee\@empty
+  \global\let\committee\relax
+  \global\let\and\relax
+}
+
+\newcommand{\@makespecializationtitlepage}{%
+  \thispagestyle{empty}
+  \begin{center}%
+    \begin{doublespacing}
+    \normalsize{\MakeUppercase{\@title\\}%
+   {\@author\\}%
+   {A DISSERTATION\\}%
+   {in\\}%
+   {\csname specialization@\endcsname\\}%
+   {For the Graduate Group in} {\csname gradgroup@\endcsname\\}%
+   {Presented to the Faculties of the University of Pennsylvania\\}%
+   {in\\}%
+   {Partial Fulfillment of the Requirements for the\\}%
+   {English Learning Program Certificate\\}%
+   {\@date}%
+    \vskip 2.5cm}%
+    \end{doublespacing}
+  \end{center}%
+   \begin{flushleft}%
+   \ifnum \cosup@cnt=0 {%
+    {Supervisor of Dissertation}\vskip 0em%
+   {\csname supervisor@\endcsname}, %\vskip 0em%
+  {\csname supervisortitle@\endcsname}}%
+  \else {%
+ \begin{tabular*}{\textwidth}{@{\extracolsep{\fill} }p{0.4\linewidth} p{0.4\linewidth}}%
+   {Supervisor of Dissertation} & {Co-Supervisor of Dissertation}\\ & \\ %\vskip 0em%
+   {\csname supervisor@\endcsname} & {\csname cosupervisor@\endcsname}\\ & \\ %\vskip 0em%
+   {\csname supervisortitle@\endcsname} & {\csname cosupervisortitle@\endcsname} %\vskip 0em%%
+\end{tabular*}%
+}%
+ \fi%  
+  \vskip 1.0cm%
+  {Graduate Group Chairperson} \vskip 0em%
+   {\csname gradchair@\endcsname}%
+  \vskip 1.0cm%
+  {Dissertation Committee}\vskip 0em%
+  \newcount\n%
+  \n=1%
+  \loop {\csname committee@\romannumeral\n\endcsname}%
+  \advance \n by 1%
+  \ifnum\n<\comm@cnt%
+  \\%\vskip 0em 
+  \repeat%
+  \end{flushleft}
+  \thispagestyle{empty}
+  \clearpage
+}
+
+\newcommand{\ifundefined}[1]{\expandafter\ifx\csname#1\endcsname\relax}
+
+% COPYRIGHT NOTICE
+\newcommand{\authorlegal}[1]{%
+  \expandafter\gdef\csname authorlegal@\endcsname{#1}}
+\newcommand{\cclicense}[1]{%
+  \expandafter\gdef\csname cclicense@\endcsname{#1}}
+\newcommand{\cclicenseurl}[1]{%
+  \expandafter\gdef\csname cclicenseurl@\endcsname{#1}}
+  
+\newcommand{\makecopyright}{%
+  \newgeometry{left=1in,bottom=1in}
+  \vspace*{\fill} 
+  \thispagestyle{empty}
+  \begin{flushleft}%
+    \begin{doublespacing}
+    \MakeUppercase{\@title\\}%
+    {COPYRIGHT\\}%
+    {\@date\\}%
+    {\csname authorlegal@\endcsname}
+    \end{doublespacing}
+\end{flushleft}%
+\clearpage
+\restoregeometry
+}
+
+\newcommand{\makecreativecommons}{%
+  \newgeometry{left=1in,bottom=1in}
+  \vspace*{\fill} 
+  \thispagestyle{empty}
+  \begin{flushleft}%
+    \begin{doublespacing}%
+    \MakeUppercase{\@title\\}%
+    {COPYRIGHT\\}%
+    {\@date\\}%
+    {\csname authorlegal@\endcsname\\}%
+    {This work is licensed under the\\}%
+    {Creative Commons\\}%
+    {\csname cclicense@\endcsname\\}%
+    {License\\}%
+    {To view a copy of this license, visit\\}%
+    \underline{\url{{\csname cclicenseurl@\endcsname}}}%
+    \end{doublespacing}%
+\end{flushleft}%
+\clearpage
+\restoregeometry
+}
+
+% DEDICATION
+\newcommand{\dedication}[1]{%
+    \expandafter\gdef\csname dedication@\endcsname{#1}}
+\newcommand{\makededication}{%
+   \textit{{\csname dedication@\endcsname}}%
+}
+
+% ACKNOWLEDGEMENT
+\newcommand{\acknowledgement}[1]{%
+    \expandafter\gdef\csname acknowledgement@\endcsname{#1}}
+\newcommand{\makeacknowledgement}{%
+   \titleformat{\chapter}[hang]{\large\center}{\thechapter}{0 pt}{}%
+   \titlespacing*{\chapter}{0pt}{-33 pt}{6 pt} % Key value is -33 pt   
+   \chapter*{ACKNOWLEDGEMENT}%
+   \addcontentsline{toc}{chapter}{ACKNOWLEDGEMENT} % This is to include this section in the Table of Contents}
+   {\csname acknowledgement@\endcsname}%
+}
+
+% ABSTRACT
+\renewcommand{\abstract}[1]{%
+    \expandafter\gdef\csname abstract@\endcsname{#1}}
+\newcommand{\makeabstract}{%
+   \titleformat{\chapter}[hang]{\large\center}{\thechapter}{0 pt}{}%
+   \titlespacing*{\chapter}{0pt}{-33 pt}{6 pt} % Key value is -33 pt
+   \chapter*{ABSTRACT} \vskip -0.3em%
+   \addcontentsline{toc}{chapter}{ABSTRACT}% This is to include this section in the Table of Contents
+   \begin{center}%
+   {\MakeUppercase{\@title}} \vskip 0em%
+   {\@author} \vskip -0.3em%
+   \ifnum \cosup@cnt=0 {%
+    {\csname supervisor@\endcsname} \vskip 0.3em%
+   } \else {%
+    {\csname supervisor@\endcsname} \vskip -0.3em%
+    {\csname cosupervisor@\endcsname} \vskip 0.3em%
+   } \fi%
+   \end{center}%
+    {\csname abstract@\endcsname}%
+    \clearpage%
+}
+
+% PREFACE
+\newcommand{\preface}[1]{%
+    \expandafter\gdef\csname preface@\endcsname{#1}}
+\newcommand{\makepreface}{%
+   \clearpage
+   \titleformat{\chapter}[hang]{\large\center}{\thechapter}{0 pt}{}%
+   \titlespacing*{\chapter}{0pt}{-33 pt}{6 pt} % Key value is -33 pt   
+   \chapter*{PREFACE}%
+   \addcontentsline{toc}{chapter}{PREFACE} % This is to include this section in the Table of Contents}
+   {\csname preface@\endcsname}%
+}
+
+% MAIN TEXT
+\newenvironment{mainf}{%
+  \titleformat{\chapter}[display]{\large\center}{}{0pt}{}
+  \titlespacing*{\chapter}{0pt}{-33 pt}{6 pt} % Key value is -33 pt
+  \newpage%
+  \pagenumbering{arabic}%
+  \pagestyle{plain} % This has to be repeated here because the lists change the style
+}{}
+
+% APPENDIX
+\newenvironment{append}{
+\renewcommand{\thechapter}{\Alph{chapter}}
+\setcounter{chapter}{0}
+\titleformat{\chapter}[display]{\large\center}{APPENDIX \thechapter}{0pt}{}
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{APPENDIX }}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+}
+
+% BIBLIOGRAPHY
+\newenvironment{bibliof}{%
+\singlespacing%
+\renewcommand\bibname{BIBLIOGRAPHY}
+\titleformat{\chapter}[hang]{\large\center}{\thechapter}{0 pt}{}
+\titlespacing*{\chapter}{0pt}{-25pt}{15pt}
+\setlength{\bibsep}{\baselineskip}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+}{}
